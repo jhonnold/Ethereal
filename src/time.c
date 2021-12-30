@@ -85,11 +85,12 @@ void initTimeManagment(SearchInfo *info, Limits *limits) {
 void update_time_manager(Thread *thread, SearchInfo *info, Limits *limits) {
 
     const int this_depth = thread->completed;
-    const int this_value = thread->pvs[this_depth].score;
-    const int last_value = thread->pvs[this_depth-1].score;
 
     // Don't update the self-clock at low depths
     if (!limits->limitedBySelf || this_depth < 4) return;
+
+    const int this_value = thread->pvs[this_depth].score;
+    const int last_value = thread->pvs[this_depth-3].score;
 
     // Increase our time if the score suddenly dropped
     if (last_value > this_value + 10) info->idealUsage *= 1.050;
