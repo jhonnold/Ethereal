@@ -49,8 +49,8 @@ static const int TTResearchMargin = 128;
 static const int BetaPruningDepth = 8;
 static const int BetaMargin = 75;
 
-static const int AlphaPruningDepth = 5;
-static const int AlphaMargin = 3000;
+static const int RazorPruningDepth = 5;
+static const int RazorMargin = 200;
 
 static const int NullMovePruningDepth = 2;
 
